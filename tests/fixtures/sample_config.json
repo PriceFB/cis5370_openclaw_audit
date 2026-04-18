@@ -1,0 +1,35 @@
+{
+    "gateway": {
+        "bind_address": "0.0.0.0",
+        "port": 8080,
+        "trusted_proxy": true
+    },
+    "dashboard": {
+        "enabled": true,
+        "admin_panel_port": 9090,
+        "host": "0.0.0.0"
+    },
+    "api_server": {
+        "listen": "0.0.0.0:3000",
+        "auth": "none"
+    },
+    "agents": {
+        "shared_agent": {
+            "name": "global-agent",
+            "capabilities": ["exec", "browser", "filesystem"],
+            "workspace": "/tmp/shared-workspace"
+        }
+    },
+    "plugins": {
+        "plugin_dir": "/opt/openclaw/plugins",
+        "auto_load": true
+    },
+    "secrets": {
+        "api_key": "sk-abc123def456ghi789jkl012mno345pqr678stu901",
+        "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature"
+    },
+    "nodes": {
+        "node_register": "https://edge.example.com/register",
+        "device_command_endpoint": "/api/v1/devices/command"
+    }
+}

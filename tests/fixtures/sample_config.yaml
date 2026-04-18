@@ -1,0 +1,44 @@
+# Sample OpenClaw-like YAML configuration for testing
+# This file intentionally contains multiple security-relevant patterns.
+
+server:
+  bind_address: "0.0.0.0"
+  port: 8443
+  use_forwarded_headers: true
+
+dashboard:
+  enabled: true
+  admin_ui_port: 9443
+  listen: "0.0.0.0:9443"
+
+workspace:
+  base_dir: /tmp
+  shared_workspace: true
+  mount_all: true
+
+agents:
+  - name: main-agent
+    shared_agent: true
+    capabilities:
+      - exec
+      - shell
+      - browser
+    tool_access: all
+    auto_approve_tool: true
+
+plugins:
+  plugin_dir: /etc/openclaw/plugins
+  extension_load: dynamic
+  skill_dir: /var/lib/openclaw/skills
+
+nodes:
+  - name: camera-01
+    device_command: /api/device/exec
+    camera_control: true
+  - name: edge-sensor
+    remote_exec: true
+
+credentials:
+  api_key: "AKIAIOSFODNN7EXAMPLE"
+  secret: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+  password: "super_secret_password_2024"
